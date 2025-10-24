@@ -34,12 +34,26 @@ class FontRendererAdjuster:
         self.output_font_name = output_font_name
         
         # JetBrains Mono风格特征参数
+        # 字体渲染优化参数 - 经过调整以获得更清晰、整齐和美观的效果
+        # 参数最佳实践说明：
+        # - weight_adjustment: 1.2 提供更强的视觉存在感，同时保持细节清晰
+        # - sharpness_factor: 1.3 增强边缘清晰度，使字体在各种分辨率下更易读
+        # - spacing_adjustment: 0.92 适度收紧字符间距，提高代码可读性
+        # - contrast_boost: 1.25 提高对比度，使字符在各种背景下更突出
+        # - anti_aliasing_level: 3 提供更好的平滑效果，减少锯齿感
         self.jetbrains_mono_style = {
-            "weight_adjustment": 1.1,  # 字重调整系数，使线条更粗
-            "sharpness_factor": 1.2,   # 清晰度调整因子
-            "spacing_adjustment": 0.95, # 字间距调整系数，使字符更紧凑
-            "contrast_boost": 1.15,    # 对比度增强因子
-            "anti_aliasing_level": 2    # 抗锯齿级别
+            "weight_adjustment":     1.2,  # 字重调整：增强线条强度
+            "sharpness_factor":      1.3,  # 清晰度：提高边缘锐利度
+            "spacing_adjustment":    0.92, # 字间距：优化字符间距离
+            "contrast_boost":        1.25, # 对比度：增强黑白色调差异
+            "anti_aliasing_level":   3     # 抗锯齿：平滑字体边缘
+        }
+        
+        # 额外的字体美学优化参数
+        self.font_aesthetics = {
+            "crisp_rendering": True,       # 启用清晰渲染模式
+            "balanced_proportions": True,  # 保持平衡的字符比例
+            "enhanced_legibility": True    # 优化易读性（特别针对代码）
         }
         
         # 如果提供了JetBrains Mono字体路径，自动分析并调整参数
@@ -547,7 +561,7 @@ def main():
     script_dir = Path(__file__).parent
     
     # 项目中字体文件的默认路径
-    default_sf_mono = script_dir / "fonts" / "RobotoMono-Medium.ttf"
+    default_sf_mono = script_dir / "fonts" / "SFMonoLigaturized-Medium-new.ttf"
     default_jetbrains_mono = script_dir / "fonts" / "JetBrainsMono-Medium.ttf"
     
     parser = argparse.ArgumentParser(description="将SF Mono字体的渲染效果调整为与JetBrains Mono字体相似的风格")
@@ -591,7 +605,7 @@ def main():
         adjuster.render_comparison_with_jetbrains(output_path=str(output_dir / "jetbrains_comparison.png"))
     
     # 生成调整后的字体文件
-    adjusted_font_path = str(output_dir / "adjusted_RobotoMono-Medium.ttf")
+    adjusted_font_path = str(output_dir / "adjusted_SFMonoLigaturized-Medium-new.ttf")
     adjuster.generate_adjusted_font_file(output_path=adjusted_font_path)
     
     # 渲染代码片段示例
