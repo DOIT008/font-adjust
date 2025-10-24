@@ -44,7 +44,7 @@ class FontRendererAdjuster:
         self.jetbrains_mono_style = {
             "weight_adjustment":     1.2,  # 字重调整：增强线条强度
             "sharpness_factor":      1.3,  # 清晰度：提高边缘锐利度
-            "spacing_adjustment":    0.92, # 字间距：优化字符间距离
+            "spacing_adjustment":    1, # 字间距：优化字符间距离
             "contrast_boost":        1.25, # 对比度：增强黑白色调差异
             "anti_aliasing_level":   3     # 抗锯齿：平滑字体边缘
         }
