@@ -547,8 +547,8 @@ def main():
     script_dir = Path(__file__).parent
     
     # 项目中字体文件的默认路径
-    default_sf_mono = script_dir / "fonts" / "SFMonoLigaturized-Regular.ttf"
-    default_jetbrains_mono = script_dir / "fonts" / "JetBrainsMono-Regular.ttf"
+    default_sf_mono = script_dir / "fonts" / "RobotoMono-Medium.ttf"
+    default_jetbrains_mono = script_dir / "fonts" / "JetBrainsMono-Medium.ttf"
     
     parser = argparse.ArgumentParser(description="将SF Mono字体的渲染效果调整为与JetBrains Mono字体相似的风格")
     parser.add_argument("--sf-mono", 
@@ -591,7 +591,7 @@ def main():
         adjuster.render_comparison_with_jetbrains(output_path=str(output_dir / "jetbrains_comparison.png"))
     
     # 生成调整后的字体文件
-    adjusted_font_path = str(output_dir / "adjusted_sf_mono_ligaturized_regular.ttf")
+    adjusted_font_path = str(output_dir / "adjusted_RobotoMono-Medium.ttf")
     adjuster.generate_adjusted_font_file(output_path=adjusted_font_path)
     
     # 渲染代码片段示例
