@@ -38,7 +38,7 @@ class FontRendererAdjuster:
         # 参数最佳实践说明：
         # - weight_adjustment: 1.2 提供更强的视觉存在感，同时保持细节清晰
         # - sharpness_factor: 1.3 增强边缘清晰度，使字体在各种分辨率下更易读
-        # - spacing_adjustment: 0.92 适度收紧字符间距，提高代码可读性
+        # - spacing_adjustment: 1 适度收紧字符间距，提高代码可读性
         # - contrast_boost: 1.25 提高对比度，使字符在各种背景下更突出
         # - anti_aliasing_level: 3 提供更好的平滑效果，减少锯齿感
         self.jetbrains_mono_style = {
