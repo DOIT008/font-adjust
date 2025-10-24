@@ -44,7 +44,7 @@ class FontRendererAdjuster:
         self.jetbrains_mono_style = {
             "weight_adjustment":     1.2,  # 字重调整：增强线条强度
             "sharpness_factor":      1.3,  # 清晰度：提高边缘锐利度
-            "spacing_adjustment":    1, # 字间距：优化字符间距离
+            "spacing_adjustment":    1.1, # 字间距：优化字符间距离
             "contrast_boost":        1.25, # 对比度：增强黑白色调差异
             "anti_aliasing_level":   3     # 抗锯齿：平滑字体边缘
         }
@@ -561,8 +561,8 @@ def main():
     script_dir = Path(__file__).parent
     
     # 项目中字体文件的默认路径
-    default_sf_mono = script_dir / "fonts" / "SFMonoLigaturized-Medium-new.ttf"
-    default_jetbrains_mono = script_dir / "fonts" / "JetBrainsMono-Medium.ttf"
+    default_sf_mono = script_dir / "fonts" / "SFMonoLigaturized-Regular.ttf"
+    default_jetbrains_mono = script_dir / "fonts" / "JetBrainsMono-Regular.ttf"
     
     parser = argparse.ArgumentParser(description="将SF Mono字体的渲染效果调整为与JetBrains Mono字体相似的风格")
     parser.add_argument("--sf-mono", 
@@ -605,7 +605,7 @@ def main():
         adjuster.render_comparison_with_jetbrains(output_path=str(output_dir / "jetbrains_comparison.png"))
     
     # 生成调整后的字体文件
-    adjusted_font_path = str(output_dir / "adjusted_SFMonoLigaturized-Medium-new.ttf")
+    adjusted_font_path = str(output_dir / "adjusted_SFMonoLigaturized-Regular.ttf")
     adjuster.generate_adjusted_font_file(output_path=adjusted_font_path)
     
     # 渲染代码片段示例
